@@ -8,8 +8,9 @@ module.exports = {
     filename: 'js/bundle.js',
   },
   plugins: [
-    new CleanWebpackPlugin({
-      cleanOnceBeforeBuildPatterns: ['**/*', '!**.html'],
+    new CleanWebpackPlugin(),
+    new HtmlWebpackPlugin({
+      template: './src/html/index.html',
     }),
   ],
 };
