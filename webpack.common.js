@@ -9,6 +9,15 @@ module.exports = {
     filename: 'js/[name].[contenthash].js',
     chunkFilename: 'js/[name].[contenthash].js',
   },
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        exclute: /node_modules/,
+        loader: 'babel-loader',
+      },
+    ],
+  },
   optimization: {
     splitChunks: {
       chunks: 'initial',
