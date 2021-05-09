@@ -1,11 +1,19 @@
 const path = require('path');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: { app: './src/js/app.js', another: './src/js/another.js' },
   output: {
     path: path.resolve(__dirname, 'public'),
     filename: 'js/[name].bundle.js',
+    chunkFilename: 'js/[name].js',
+  },
+  optimization: {
+    splitChunks: {
+      chunks: 'initial',
+      name: 'vendor',
+    },
   },
   plugins: [
     new CleanWebpackPlugin(),
