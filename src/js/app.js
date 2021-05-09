@@ -1,3 +1,6 @@
 import $ from 'jquery';
+import { greet } from './modules/greet';
 
-console.log('app');
+$('body')
+  .append(result)
+  .append(`<p>${greet('app')}</p>`);

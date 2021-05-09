@@ -1,3 +1,6 @@
 import $ from 'jquery';
+import { greet } from './modules/greet';
 
-$('body').css('color', 'red');
+$('body')
+  .css('color', 'blue')
+  .append(`<p>${greet('Another')}</p>`);

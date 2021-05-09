@@ -6,13 +6,24 @@ module.exports = {
   entry: { app: './src/js/app.js', another: './src/js/another.js' },
   output: {
     path: path.resolve(__dirname, 'public'),
-    filename: 'js/[name].bundle.js',
-    chunkFilename: 'js/[name].js',
+    filename: 'js/[name].[contenthash].js',
+    chunkFilename: 'js/[name].[contenthash].js',
   },
   optimization: {
     splitChunks: {
       chunks: 'initial',
-      name: 'vendor',
+      cacheGroups: {
+        vendor: {
+          test: /node_modules/,
+          name: 'vender',
+        },
+        vendorModules: {
+          test: /src[\\/]js[\\/]modules/,
+          name: 'vendor-modules',
+          minSize: 0,
+          minChunks: 2,
+        },
+      },
     },
   },
   plugins: [
