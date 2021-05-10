@@ -2,7 +2,7 @@ import $ from 'jquery';
 import { greet } from './modules/greet';
 
 $('body')
-  .append(result)
+  .append('result')
   .append(`<p>${greet('app')}</p>`);
 
 // これらはES2015の構文なので、ES2015に対応していないブラウザは
@@ -12,7 +12,4 @@ const promise = new Promise((resolve) => {
   setTimeout(() => resolve('hello!'), 3000);
 });
 
-async function delayHello() {
-  const value = await promise;
-  console.log(value);
-}
+promise.then(() => console.log('aaa'));
