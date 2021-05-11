@@ -1,5 +1,6 @@
 import $ from 'jquery';
 import { greet } from './modules/greet';
+import '../scss/style.scss';
 
 $('body')
   .append('result')
