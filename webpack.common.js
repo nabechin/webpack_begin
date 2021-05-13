@@ -35,6 +35,15 @@ module.exports = {
         exclude: /node_modules/,
         loader: 'babel-loader',
       },
+      {
+        test: /\.(jpe?g|gif|png|svg)$/,
+        loader: 'file-loader',
+        options: {
+          name: '[name].[contenthash].[ext]',
+          outputPath: 'images',
+          publicPath: '/images',
+        },
+      },
     ],
   },
   optimization: {
